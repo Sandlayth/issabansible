@@ -1,2 +1,2 @@
-# issabansible
-Ansible playbook of Issaba
+# serverAnsible
+Ansible playbook of my personal server
