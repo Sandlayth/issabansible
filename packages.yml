@@ -1,0 +1,29 @@
+- hosts: personal
+  remote_user: root
+
+  tasks:
+      - name: install basic packages for server usage
+        package:
+            name={{item}}
+        with_items:
+        - nginx
+        - python
+        - docker
+        - docker-compose
+        - nodejs
+        - npm
+        - certbot
+
+      - name: install basic packages for ssh usage
+        package:
+            name={{item}}
+        with_items:
+        - tmux
+        - mosh
+        - vim
+        - rxvt-unicode #for term compatibility
+        - git
+        - dos2unix
+
+
+
