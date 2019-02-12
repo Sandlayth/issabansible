@@ -1,0 +1,22 @@
+- name: generate locale
+  locale_gen:
+    name: en_US.UTF-8
+    state: present
+
+- name: set timezone
+  file:
+    src: /usr/share/zoneinfo/Europe/Paris
+    dest: /etc/localtime
+    state: link
+
+- name: install basic packages for ssh usage
+  package:
+      name: "{{ item }}"
+  with_items:
+  - bash
+  - tmux
+  - mosh
+  - vim
+  - rxvt-unicode #for term compatibility
+  - git
+  - dos2unix

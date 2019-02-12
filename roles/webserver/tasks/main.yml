@@ -1,0 +1,21 @@
+- name: install basic packages for server usage
+  package:
+      name: "{{ item }}"
+  with_items:
+  - nginx
+  - python
+  - docker
+  - docker-compose
+  - nodejs
+  - npm
+  - certbot
+
+- name: enable and start webservices daemons
+  service:
+      name: "{{ item }}"
+      enabled: yes
+      state: started
+  with_items:
+  - nginx
+  - docker
+
