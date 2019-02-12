@@ -10,6 +10,13 @@
   - npm
   - certbot
 
+- name: copy nginx configuration
+  copy:
+    src: "{{ item }}"
+    dest: /etc/nginx/
+  with_fileglob:
+      - etc/nginx/*
+
 - name: enable and start webservices daemons
   service:
       name: "{{ item }}"
