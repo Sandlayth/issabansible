@@ -16,6 +16,11 @@
     dest: /etc/nginx/
   with_fileglob:
       - etc/nginx/*
+  copy:
+    src: "{{ item }}"
+    dest: /etc/nginx/conf.d/
+  with_fileglob:
+      - etc/nginx/conf.d/*
 
 - name: enable and start webservices daemons
   service:
